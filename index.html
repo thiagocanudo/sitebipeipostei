@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>Bipei Postei | Controle de expedição para sua loja</title>
+    <meta name="description" content="Bipe os códigos de rastreio, evite envios duplicados e tenha o controle das suas postagens em um só lugar.">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/principal.css">
+    <link rel="stylesheet" href="css/faq.css">
+        <meta property="og:title" content="BipeiPostei - Sistema de Controle de Códigos de Rastreios" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://bipeipostei.com.br/" />
+        <meta property="og:image" content="https://app.bipeipostei.com.br/images/bipei-postei.png" />
+        <meta property="og:site_name" content="BipeiPostei" />
+        <meta property="og:description" content="BipeiPostei - Controle dos códigos de rastreio da sua operação de e-commerce" /> 
+    <link rel="apple-touch-icon" sizes="57x57" href="images/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="images/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="images/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="images/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="images/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="images/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="images/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="images/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">           
+  </head>
+  <body>
+    <!-- =====================================================
+     NAVBAR
+===================================================== -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-purple fixed-top p-2 mb-3">
+      <div class="container">
+        <a href="#">
+          <img src="https://app.bipeipostei.com.br/images/logo.svg">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu">
+          <span class="text-white"> ☰ </span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+          <ul class="navbar-nav ml-auto align-items-lg-center">
+            <li class="nav-item">
+              <a class="btn btn-primary btn-block text-left text-md-center" href="#como-funciona"> Como funciona </a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-primary btn-block text-left text-md-center" href="#beneficios"> Benefícios </a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-primary btn-block text-left text-md-center" href="#canais"> Canais </a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-primary btn-block text-left text-md-center" href="#faq"> Perguntas frequentes </a>
+
+            <li class="nav-item">
+              <a class="btn btn-primary btn-block text-left text-md-center" href="https://app.bipeipostei.com.br/"> <strong>Entrar</strong></a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- =====================================================
+     HERO
+===================================================== -->
+    <section class="hero">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-5">
+            <span class="hero-badge"> SISTEMA DE CONTROLE DE EXPEDIÇÃO </span>
+            <h1> Bipei. Postei.
+              <br> 
+              <span>Resolvido!</span>
+            </h1>
+            <p class="hero-text"> Controle seus códigos de rastreio, evite envios duplicados e tenha todas as suas postagens organizadas em um lugar só. </p>
+            <div class="hero-buttons">
+              <a href="cadastro.php" class="btn btn-roxo btn-lg"> Começar agora </a>
+            </div>
+            <div class="hero-checks">
+              <span>
+                <i class="bi bi-check-circle-fill"></i> Código de barras e QR Code </span>
+                <br>
+              <span>
+                <i class="bi bi-check-circle-fill"></i> Feito para e-commerce </span>
+            </div>
+          </div>
+          <!-- PRINT DO PAINEL -->
+          <div class="col-lg-7 hero-preview">
+            <div class="screen-wrapper">
+              <img src="images/image-hero.png" alt="Painel de controle Bipei Postei">
+              <div class="screen-label">
+                <i class="bi bi-bar-chart-fill"></i> Bipe com leitor ou celular
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- =====================================================
+     PROBLEMA
+===================================================== -->
+    <section class="problem">
+      <div class="container">
+        <!-- <div class="section-title">
+          <h2> Sua equipe ainda controla os envios manualmente? </h2>
+          <p> Quanto maior o volume de pedidos, maior a chance de erros durante a separação e postagem das mercadorias. </p>
+        </div> -->
+        <div class="row">
+          <div class="col-md-3 mb-4">
+            <div class="problem-card text-center">
+              <div class="problem-icon">
+                <i class="bi bi-box-seam"></i>
+              </div>
+              <h4> Sem envios duplicados </h4>
+              <p> Reduza as chances de enviar novamente um pedido já enviado. </p>
+            </div>
+          </div>
+          <div class="col-md-3 mb-4">
+            <div class="problem-card text-center">
+              <div class="problem-icon">
+                <i class="bi bi-upc-scan"></i>
+              </div>
+              <h4> Bipagem rápida </h4>
+              <p> Use um leitor de código de barras ou seu celular para bipar rastreios rapidamente. </p>
+            </div>
+          </div>
+          <div class="col-md-3 mb-4">
+            <div class="problem-card text-center">
+              <div class="problem-icon">
+                <i class="bi bi-shield-check"></i>
+              </div>
+              <h4> Mais segurança </h4>
+              <p> Simplifique a conferência e agilize o trabalho da equipe responsável pela expedição. </p>
+            </div>
+          </div>
+          <div class="col-md-3 mb-4">
+            <div class="problem-card text-center">
+              <div class="problem-icon">
+                <i class="bi bi-cloud"></i>
+              </div>
+              <h4> Sistema online </h4>
+              <p> Acesse sua operação de qualquer computador pelo navegador. </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- =====================================================
+     BIPAR
+===================================================== -->
+    <section id="como-funciona">
+      <div class="container">
+        <div class="row align-items-center">
+          <!-- PRINT DO CADASTRO -->
+          <div class="col-lg-7">
+            <img src="images/painel.png" alt="Cadastro de código de rastreio no Bipei Postei" class="bipar-image">
+          </div>
+          <div class="col-lg-5">
+            <div class="bipar-content">
+              <div class="small-title"> Como funciona </div>
+              <h2> Bipe e gerencie. </h2>
+              <p> O Bipei Postei permite registrar seus códigos de rastreio através de <strong>código de barras ou QR Code</strong>, acompanhando diferentes formatos utilizados na operação de e-commerce. </p>
+
+              <p>Mais controle. Menos trabalho manual. Pensando na rotina de quem precisa processar muitos pedidos todos os dias.</p>
+
+              <p> O Bipei Postei registra o código junto com a data, horário e canal de venda. </p>
+              <div class="info-box">
+                <strong> ⚡ Rápido e simples </strong> Sua equipe não precisa anotar digitar os pedidos manualmente.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- =====================================================
+     COMO FUNCIONA
+===================================================== -->
+    <section id="steps" class="steps">
+      <div class="container">
+        <!-- <div class="section-title">
+          <h2> Bipe. Confira. Poste! </h2>
+        </div> -->
+        <div class="row">
+          <div class="col-md-4">
+            <div class="step">
+              <img src="images/step-bipe.png" />
+              <h4 class="mt-3 mb-2"> Bipe. </h4>
+              <p> Leia o código de barras da etiqueta usando seu leitor ou celular. </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="step">
+              <img src="images/step-confira.png" />
+              <h4 class="mt-3 mb-2"> Confira. </h4>
+              <p> O sistema registra o código e ajuda a identificar registros anteriores. </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="step">
+              <img src="images/step-poste.png" />
+              <h4 class="mt-3 mb-2"> Poste! </h4>
+              <p> Código conferido? Agora é só enviar o pedido. </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- =====================================================
+     EVITAR DUPLICIDADE
+===================================================== -->
+    <section id="beneficios">
+      <div class="container">
+        <div class="beneficios-box">
+          <div class="row align-items-center">
+            <div class="col-lg-7">
+              <h2> Evite postar o mesmo pedido duas vezes. </h2>
+              <p> Um erro na expedição pode gerar retrabalho, custos e problemas no atendimento ao cliente. </p>
+              <div class="beneficios-list">
+                <div>
+                  <i class="bi bi-check-circle-fill"></i> Controle dos códigos registrados
+                </div>
+                <div>
+                  <i class="bi bi-check-circle-fill"></i> Histórico das postagens
+                </div>
+                <div>
+                  <i class="bi bi-check-circle-fill"></i> Identificação por canal de venda
+                </div>
+                <div>
+                  <i class="bi bi-check-circle-fill"></i> Mais controle para sua equipe
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-5 text-center">
+              <!-- <i class="bi bi-shield-check" style="font-size:130px;"></i> -->
+              <img src="images/pedidos.png">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- =====================================================
+     PAINEL
+===================================================== -->
+    <section class="dashboard">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-7">
+            <img src="https://i.imgur.com/2FTgQZ7.png" alt="Painel de controle de postagens Bipei Postei" class="dashboard-image">
+          </div>
+          <div class="col-lg-5">
+            <div class="dashboard-text">
+              <h2> Saiba o que sua operação está postando. </h2>
+              <p> Tenha uma visão rápida das postagens realizadas e consulte os códigos registrados pela sua equipe. </p>
+              <div class="stats">
+                <div class="stat">
+                  <strong> Hoje </strong>
+                  <span> Postagens do dia </span>
+                </div>
+                <div class="stat">
+                  <strong> Ontem </strong>
+                  <span> Histórico anterior </span>
+                </div>
+                <div class="stat">
+                  <strong> 7 dias </strong>
+                  <span> Volume recente </span>
+                </div>
+                <div class="stat">
+                  <strong> 30 dias </strong>
+                  <span> Visão mensal </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- =====================================================
+     CANAIS
+===================================================== -->
+    <section id="canais" class="problem">
+      <div class="container">
+        <div class="section-title">
+          <h2> Seus canais em um só lugar. </h2>
+          <p> Organize os códigos de rastreio de diferentes canais de venda dentro da mesma operação. </p>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-6 col-md-2 mb-4">
+            <div class="channel">
+             <img src="https://app.bipeipostei.com.br/images/ico-logo-mercadolivre.png">
+             <span>Mercado Livre</span>
+         </div>
+          </div>          
+          <div class="col-6 col-md-2 mb-4">
+            <div class="channel">
+             <img src="https://app.bipeipostei.com.br/images/ico-logo-mercadolivreflex.png">
+             <span>Mercado Livre Flex</span>
+         </div>
+          </div>
+          <div class="col-6 col-md-2 mb-4">
+            <div class="channel">
+             <img src="https://app.bipeipostei.com.br/images/ico-logo-shopee.png">
+             <span>Shopee</span>
+         </div>
+          </div>
+          <div class="col-6 col-md-2 mb-4">
+            <div class="channel">
+             <img src="https://app.bipeipostei.com.br/images/ico-shopee-entrega-direta.png">
+             <span>Shopee Entrega Rápida</span>
+         </div>
+          </div>
+          <div class="col-6 col-md-2 mb-4">
+            <div class="channel">
+             <img src="https://app.bipeipostei.com.br/images/ico-logo-shein.png">
+             <span>Shein</span>
+         </div>
+          </div>
+          <div class="col-6 col-md-2 mb-4">
+            <div class="channel">
+             <img src="https://app.bipeipostei.com.br/images/ico-logo-magalu.png">
+             <span>Magalu</span>
+         </div>
+          </div>
+          <div class="col-6 col-md-2 mb-4">
+            <div class="channel">
+             <img src="https://app.bipeipostei.com.br/images/ico-logo-temu.png">
+             <span>Temu</span>
+         </div>
+          </div>
+          <div class="col-6 col-md-2 mb-4">
+            <div class="channel">
+             <img src="https://app.bipeipostei.com.br/images/ico-logo-tiktokshop.png">
+             <span>TikTok Shop</span>
+         </div>
+          </div>
+          <div class="col-6 col-md-2 mb-4">
+            <div class="channel">
+             <img src="https://app.bipeipostei.com.br/images/ico-logo-amazon.png">
+             <span>Amazon</span>
+         </div>
+          </div>
+          <div class="col-6 col-md-2 mb-4">
+            <div class="channel">
+             <img src="https://app.bipeipostei.com.br/images/ico-logo-site.png">
+             <span>Seu site</span>
+         </div>
+          </div>          
+        </div>
+      </div>
+    </section>    
+    <!-- =====================================================
+     CTA
+===================================================== -->
+    <section class="cta">
+      <div class="container text-center">
+        <h2> Sua expedição pode ser mais simples. </h2>
+        <p> Pare de depender de controles manuais para saber quais códigos já foram registrados. 
+            <br>
+        Comece a controlar suas postagens com o Bipei Postei. </p>
+        <a href="cadastro.php" class="btn btn-white btn-lg"> Começar agora → </a>
+      </div>
+    </section>
+    <!-- =====================================================
+     FAQ
+===================================================== -->
+    <section class="faq-section" id="faq">
+
+        <div class="container">
+
+            <div class="section-title">
+                <span class="eyebrow">Dúvidas frequentes</span>
+
+                <h1>Perguntas frequentes</h1>
+
+                <p>
+                    Tire suas dúvidas e saiba mais sobre como o
+                    Bipei Postei pode ajudar na organização da sua expedição.
+                </p>
+            </div>
+
+            <div id="faqAccordion">
+
+                <div class="card">
+                    <div class="card-header">
+                        <button type="button" aria-expanded="true">
+                            O que é o Bipei Postei?
+                        </button>
+                    </div>
+                    <div class="card-body open">
+                        O Bipei Postei é um sistema online desenvolvido
+                        para ajudar lojas virtuais a controlar seus
+                        códigos de rastreio e organizar o processo de expedição.
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <button type="button" aria-expanded="false">
+                            Posso usar um leitor de código de barras?
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        Sim. O Bipei Postei foi pensado para trabalhar
+                        com leitores de código de barras utilizados
+                        na rotina de expedição.
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <button type="button" aria-expanded="false">
+                            Aceita etiquetas no padrão QR Code?
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        Sim. O Bipei Postei suporta a leitura de
+                        QR Codes utilizados no Mercado Livre Flex,
+                        permitindo que sua equipe mantenha o mesmo
+                        fluxo de conferência: ler, registrar e postar.
+
+                        <br><br>
+
+                        <strong>Obs.:</strong>
+                        Seu leitor precisa suportar código de barras
+                        e QR Code.
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <button type="button" aria-expanded="false">
+                            O Bipei Postei evita envios duplicados?
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        O sistema mantém o registro dos códigos
+                        cadastrados, permitindo identificar quando
+                        um código já foi registrado anteriormente.
+                        Isso ajuda sua equipe a reduzir erros
+                        durante a expedição.
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <button type="button" aria-expanded="false">
+                            Preciso instalar algum programa?
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        Não. O Bipei Postei é um sistema online
+                        acessado diretamente pelo navegador.
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <button type="button" aria-expanded="false">
+                            Para quem o Bipei Postei foi criado?
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        Para lojas virtuais e equipes que precisam
+                        controlar e organizar o processo de expedição
+                        de pedidos.
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =====================================================
+     FOOTER
+===================================================== -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="footer-brand">
+              <img src="https://bipeipostei.com.br/images/logo-bipeipostei.svg">
+            </div>
+            <p class="mt-1"> Controle seus códigos. Agilize sua expedição. </p>
+          </div>
+        </div>
+        <div class="copyright text-center"> © 2020 BipeiPostei. Todos os direitos reservados. </div>
+      </div>
+    </footer>
+    <!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/principal.js"></script>
+  </body>
+</html>

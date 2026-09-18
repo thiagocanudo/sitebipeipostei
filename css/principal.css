@@ -1,0 +1,567 @@
+ @import url('https://fonts.googleapis.com/css2?family=Muli:wght@400;500;800&display=swap');
+
+ :root {
+     --roxo: #7952b3;
+     --roxo-dark: #614092;
+     --roxo-extra-dark: #5830B4;
+     --roxo-light: #EDF2F8; /* #F6F6FD; #EDE8FA */
+     --rosa: #e600a9;
+     --preto: #272727;
+     --cinza: #666;
+     --cinza-claro: #f7f7f7;
+}
+
+
+ * {
+     box-sizing: border-box;
+}
+ html {
+     scroll-behavior: smooth;
+}
+ body {
+     font-family: 'Muli' ,sans-serif;
+     margin: 0;
+     color: var(--preto);
+     background: #fff;
+}
+
+h2{
+    line-height: 1;
+}
+/* ========================================= NAVBAR ========================================= */
+ .navbar {
+     background: var(--roxo);
+     padding: 12px 0;
+}
+ .navbar-brand {
+     color: #fff !important;
+     font-size: 27px;
+     font-weight: 700;
+     letter-spacing: -1px;
+}
+ .navbar-brand .brand-pink {
+     color: #ff5fc7;
+}
+ .navbar-brand i {
+     font-size: 25px;
+     margin-right: 5px;
+}
+ .nav-link {
+     color: #fff !important;
+     font-size: 16px;
+     margin-left: 20px;
+}
+ .nav-link:hover {
+     opacity: .8;
+}
+ .btn-login {
+     border: 1px solid rgba(255,255,255,.8);
+     color: #fff;
+     border-radius: 6px;
+     padding: 8px 18px;
+}
+ .btn-login:hover {
+     background: #fff;
+     color: var(--roxo);
+}
+/* ========================================= BOTÕES ========================================= */
+.bg-purple {background-color: var(--roxo) !important;}
+
+.btn-primary, .dt-button{background-color: var(--roxo) !important;border-color: var(--roxo) !important;}
+.btn-primary:not(:disabled):not(.disabled):active, .dt-button:not(:disabled):not(.disabled):active,
+.btn-primary:active, .btn-primary:hover, .dt-button:active, .dt-button:hover {background-color: #614092 !important;border-color: #614092 !important;}
+.btn-primary:focus, .dt-button:focus {box-shadow: 0 0 0 3px rgba(121,82,179,.25) !important;}
+
+
+.btn-outline-primary:not(:disabled):not(.disabled):active {
+    background-color: var(--roxo);
+    border-color: var(--roxo);
+}
+
+.btn-outline-primary {
+    color: var(--roxo);
+    border-color: var(--roxo);
+}
+
+.btn-outline-primary:not(:disabled):not(.disabled):active,
+.btn-outline-primary:hover {
+    background-color: var(--roxo);
+    border-color: var(--roxo);
+}
+
+.btn-outline-primary:not(:disabled):not(.disabled):active:focus,
+.btn-outline-primary:focus {
+    box-shadow: 0 0 0 0.2rem rgba(120,80,180,.2);
+}
+
+
+ .btn-roxo {
+     background: var(--roxo);
+     color: #fff;
+     border: none;
+     border-radius: 50px;
+     padding: 12px 28px;
+     font-weight: 700;
+     transition: .2s;
+}
+
+ .btn-roxo:hover {
+     background: var(--roxo-dark);
+     color: #fff;
+     transform: translateY(-2px);
+}
+ .btn-outline-roxo {
+     background: #fff;
+     color: var(--roxo);
+     border: 2px solid var(--roxo);
+     border-radius: 50px;
+     padding: 10px 26px;
+     font-weight: 700;
+     transition: .2s;
+}
+ .btn-outline-roxo:hover {
+     background: var(--roxo-dark);
+     color: #fff;
+}
+/* ========================================= HERO ========================================= */
+ .hero {
+     position: relative;
+     padding: 140px 0 100px;
+     overflow: hidden;
+     background: linear-gradient(to bottom, #FFFFFF 0%, #F6F5FD 100%);
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 360px;
+    height: 360px;
+    left: -220px;
+    top: 180px;
+    border-radius: 50%;
+    background: #f1ebfa;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    right: -190px;
+    bottom: 50px;
+    border-radius: 50%;
+    background: #f4effb;
+}
+
+ .hero-badge {
+     display: inline-block;
+     padding: 2px 16px;
+     border-radius: 30px;
+     background: var(--roxo-light);
+     color: var(--roxo);
+     font-size: 13px;
+     font-weight: 500;
+     margin-bottom: 10px;
+}
+ .hero h1 {
+     font-size: 58px;
+     line-height: 1.05;
+     font-weight: 700;
+     letter-spacing: -2.5px;
+     margin-bottom: 25px;
+}
+ .hero h1 span {
+     color: var(--roxo);
+}
+ .hero-text {
+     color: var(--cinza);
+     font-size: 18px;
+     line-height: 1.35;
+     max-width: 580px;
+}
+ .hero-buttons {
+     margin-top: 30px;
+}
+ .hero-buttons .btn {
+     margin-right: 8px;
+     margin-bottom: 10px;
+}
+ .hero-checks {
+     margin-top: 25px;
+     color: #555;
+     font-size: 15px;
+}
+ .hero-checks span {
+     margin-right: 18px;
+}
+ .hero-checks i {
+     color: #198754;
+     margin-right: 5px;
+}
+/* ========================================= SCREENSHOT ========================================= */
+ .screen-wrapper {
+     position: relative;
+}
+ .screen-wrapper img {
+     width: 100%;
+     display: block;
+     /*border-radius: 10px;
+     box-shadow: 0 25px 60px rgba(0,0,0,.18);
+     border: 1px solid #ddd;*/
+}
+ .screen-label {
+     position: absolute;
+     bottom: -30px;
+     right: 5px;
+     background: #fff;
+     padding: 12px 18px;
+     border-radius: 8px;
+     box-shadow: 0 8px 25px rgba(0,0,0,.12);
+     font-size: 14px;
+     font-weight: 700;
+}
+ .screen-label i {
+     color: var(--roxo);
+     margin-right: 6px;
+}
+/* ========================================= SECTIONS ========================================= */
+ section {
+     padding: 40px 0 80px;
+}
+ .section-title {
+     text-align: center;
+     margin-bottom: 60px;
+}
+ .section-title h2 {
+     font-size: 40px;
+     font-weight: 700;
+     letter-spacing: -1px;
+}
+ .section-title p {
+     max-width: 680px;
+     margin: 15px auto 0;
+     color: var(--cinza);
+     font-size: 17px;
+     line-height: 1.5;
+}
+/* ========================================= PROBLEMA ========================================= */
+ .problem {
+     padding: 30px 0 20px;
+     background: linear-gradient(to bottom,  #F6F5FD 0%,#FFFFFF 100%);
+}
+ .problem-card {
+     height: 100%;
+     background: linear-gradient(to bottom,  #FFFFFF 0%,#F6F5FD 100%);
+     border-radius: 10px;
+     padding: 20px;
+     border: 2px solid #e5def9; 
+     /*box-shadow: 0 20px 40px rgb(211 220 232 / 70%);*/
+     transition: .2s;
+}
+ .problem-card:hover {
+     transform: translateY(-4px);
+     box-shadow: 0 15px 35px rgba(0,0,0,.08);
+}
+ .problem-icon {
+     width: 55px;
+     height: 55px;
+     margin: auto;
+     border-radius: 50px;
+     color: var(--roxo-extra-dark);
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     font-size: 42px;
+     margin-bottom: 10px;
+}
+ .problem-card h4 {
+     font-size: 18px;
+     font-weight: 700;
+}
+ .problem-card p {
+     font-size: 17px;
+     color: var(--cinza);
+     line-height: 1.4;
+     margin-bottom: 0;
+}
+/* ========================================= BIPAR ========================================= */
+ #como-funciona {
+     background: #fff;
+}
+ .bipar-image {
+     max-width: 100%;
+     /*border-radius: 10px;
+     box-shadow: 0 20px 50px rgba(0,0,0,.13);
+     border: 1px solid #ddd;*/
+}
+ .bipar-content {
+     padding-left: 35px;
+}
+ .bipar-content .small-title {
+     color: var(--roxo);
+     font-weight: 700;
+     text-transform: uppercase;
+     font-size: 13px;
+     letter-spacing: 1px;
+}
+ .bipar-content h2 {
+     font-size: 40px;
+     font-weight: 700;
+     margin: 12px 0 20px;
+}
+ .bipar-content p {
+     color: var(--cinza);
+     font-size: 17px;
+     line-height: 1.5;
+}
+ .info-box {
+     font-size: 17px;
+     background: var(--roxo-light);
+     border-left: 4px solid var(--roxo);
+     padding: 18px;
+     margin-top: 25px;
+     border-radius: 5px;
+}
+ .info-box strong {
+     display: block;
+     margin-bottom: 5px;
+}
+/* ========================================= COMO FUNCIONA ========================================= */
+ .steps {
+    /*box-shadow: 0 20px 40px rgb(211 220 232 / 70%);*/
+    background: linear-gradient(to bottom, #FFFFFF 0%, #F6F5FD 100%);
+}
+
+ .step {
+     text-align: center;
+     padding: 20px;
+     border-radius: 20px;
+     border: 1px solid #e5def9;
+     background: #fff;    
+}
+ .step-number {
+     width: 70px;
+     height: 70px;
+     background: var(--roxo);
+     color: #fff;
+     border-radius: 50%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     font-size: 25px;
+     font-weight: 700;
+     margin: 0 auto 20px;
+}
+ .step h4 {
+     font-size: 21px;
+     font-weight: 700;
+}
+ .step p {
+     color: var(--cinza);
+     font-size: 17px;
+     line-height: 1.35;
+}
+/* ========================================= DIFERENCIAL ========================================= */
+ #beneficios {
+     background: #fff;
+}
+ .beneficios-box {
+     background: var(--roxo);
+     color: #fff;
+     border-radius: 15px;
+     padding: 55px;
+     position: relative;
+     overflow: hidden;
+}
+ .beneficios-box:after {
+     content: "";
+     position: absolute;
+     width: 300px;
+     height: 300px;
+     border-radius: 50%;
+     background: rgba(255,255,255,.06);
+     right: -100px;
+     top: -100px;
+}
+ .beneficios-box h2 {
+     font-size: 38px;
+     font-weight: 700;
+     position: relative;
+     z-index: 2;
+}
+ .beneficios-box p {
+     color: rgba(255,255,255,.85);
+     font-size: 18px;
+     line-height: 1.5;
+     position: relative;
+     z-index: 2;
+}
+ .beneficios-box img {
+    display: block;
+    max-width: 100%;
+}    
+ .beneficios-list {
+     margin-top: 25px;
+     position: relative;
+     font-size: 17px;
+     z-index: 2;
+}
+ .beneficios-list div {
+     margin-bottom: 13px;
+}
+ .beneficios-list i {
+     color: #fff;
+     margin-right: 8px;
+}
+/* ========================================= PAINEL ========================================= */
+ .dashboard {
+     display:none;
+     background: var(--roxo-light);
+}
+ .dashboard-image {
+     width: 100%;
+     border-radius: 10px;
+     box-shadow: 0 20px 50px rgba(0,0,0,.15);
+     border: 1px solid #ddd;
+}
+ .dashboard-text {
+     padding-left: 40px;
+}
+ .dashboard-text h2 {
+     font-size: 38px;
+     font-weight: 700;
+     margin-bottom: 20px;
+}
+ .dashboard-text p {
+     color: var(--cinza);
+     line-height: 1.8;
+     font-size: 17px;
+}
+ .stats {
+     display: flex;
+     flex-wrap: wrap;
+     margin-top: 25px;
+}
+ .stat {
+     width: 50%;
+     margin-bottom: 20px;
+}
+ .stat strong {
+     display: block;
+     font-size: 25px;
+     color: var(--roxo);
+}
+ .stat span {
+     color: var(--cinza);
+     font-size: 14px;
+}
+/* ========================================= CANAIS ========================================= */
+
+#canais{
+    padding: 70px 0;
+    background: var(--roxo-light);
+}
+
+ .channel {
+     height: 100%;
+     line-height: 20px;
+     border: 1px solid #e5e5e5;
+     border-radius: 8px;
+     padding: 15px 15px 10px;
+     font-size: 14px;
+     font-weight: 500;
+     text-align: center;
+     /*margin-bottom: 20px;*/
+     background: #fff;
+     transition: .2s;
+}
+ .channel:hover {
+     border-color: var(--roxo);
+     transform: translateY(-3px);
+     box-shadow: 0 10px 25px rgba(0,0,0,.06);
+}
+
+.channel img{
+    display: block;
+    margin: auto auto 10px;
+    width: 50px;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+}
+
+/* ========================================= CTA ========================================= */
+ 
+/* ========================================= FAQ ========================================= */
+
+/* ========================================= FOOTER ========================================= */
+ footer {
+     background: #202020;
+     color: #aaa;
+     padding: 20px 0 20px;
+}
+ .footer-brand {
+     color: #fff;
+     font-size: 27px;
+     font-weight: 700;
+}
+ .footer-brand span {
+     color: #ff5fc7;
+}
+ footer h5 {
+     color: #fff;
+     font-weight: 700;
+}
+ footer a {
+     color: #aaa;
+}
+ footer a:hover {
+     color: #fff;
+     text-decoration: none;
+}
+ .copyright {
+     border-top: 1px solid #333;
+     padding-top: 20px;
+     font-size: 13px;
+}
+/* ========================================= RESPONSIVO ========================================= */
+ @media (max-width: 991px) {
+     .hero h1 {
+         font-size: 45px;
+    }
+    .btn-roxo {
+        width: 100%;
+    }
+     .hero-preview {
+         margin-top: 60px;
+    }
+     .bipar-content, .dashboard-text {
+         padding-left: 0;
+         margin-top: 40px;
+    }
+}
+ @media (max-width: 767px) {
+     section {
+         padding: 65px 0;
+    }
+     .hero {
+         padding: 100px 0 60px;
+    }
+     .hero h1 {
+         font-size: 38px;
+    }
+     .section-title h2, .bipar-content h2, .dashboard-text h2 {
+         font-size: 31px;
+    }
+     .beneficios-box {
+         padding: 35px 25px;
+    }
+     .beneficios-box h2 {
+         font-size: 30px;
+    }
+     .cta h2 {
+         font-size: 32px;
+    }
+    .steps {
+        padding-top: 0;
+    }
+}

@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Muli:wght@400;500;800&display=swap');
+
+body{padding-top: 4rem;font-family: 'Muli' ,sans-serif;font-size: 0.9rem;color: #495057;}
+
+body.login{background: #6226c4 url(/images/bg.jpg) no-repeat right center;background-size: cover;}
+
+.container, .container-lg, .container-md, .container-sm, .container-xl {
+    max-width: 1080px;
+}
+
+.navbar-dark .navbar-toggler {border-color: rgba(255,255,255,.5);}
+
+h4,h5{font-weight: 800;}
+h5{font-size: 1.2rem;}
+
+.content-block{
+	position: relative;
+	border: 1px solid #e6e6e6;
+    -webkit-box-shadow: 0 0 0 2px #f3f3f3;
+    -moz-box-shadow: 0 0 0 2px #f3f3f3;
+    box-shadow: 0 0 0 2px #f3f3f3;
+    overflow: hidden;
+    padding: 20px;
+    position: relative;
+}
+
+.content-block h5,.content-block h4{
+    color: #7f54b3;
+}
+
+.content-block h4{
+	font-weight: 600;
+}
+
+.content-block svg{
+	position: absolute;
+	right: -10px;
+	bottom: -10px;
+	color: #f1f1f1;
+	z-index: -1;
+}
+
+.content-block .badge{
+	font-size: 22px;
+	color: #fff;
+	background-color: #674399;
+}
+
+.content-block--hoje {
+    border: 1px solid rgb(103 67 153 / 0.5);
+    -webkit-box-shadow: 0 0 0 2px rgb(103 67 153 / 0.25);
+    -moz-box-shadow: 0 0 0 2px rgb(103 67 153 / 0.25);
+    box-shadow: 0 0 0 2px rgb(103 67 153 / 0.25);
+}
+
+.content-block--hoje .badge{
+	font-size: 22px;
+}
+
+
+
+@media only screen and (max-width: 767px){
+	.col-sm-3.content{width: 100%;}
+	.content-block h4, .content-block h5 {font-size: 18px;}
+	.content-block .badge {font-size: 15px}
+}
+
+/* STICK FOOTER */
+html, body { height: 100%; }
+#page-content { flex: 1 0 auto; }
+.footer{flex-shrink: none;background-color: #f7f7f7;}
+
+.bg-purple {background-color: #7952b3 !important;}
+
+.btn-primary, .dt-button{background-color: #7952b3 !important;border-color: #7952b3 !important;}
+.btn-primary:not(:disabled):not(.disabled):active, .dt-button:not(:disabled):not(.disabled):active,
+.btn-primary:active, .btn-primary:hover, .dt-button:active, .dt-button:hover {background-color: #614092 !important;border-color: #614092 !important;}
+.btn-primary:focus, .dt-button:focus {box-shadow: 0 0 0 3px rgba(121,82,179,.25) !important;}
+
+
+.btn-outline-primary:not(:disabled):not(.disabled):active {
+    background-color: #7952b3;
+    border-color: #7952b3;
+}
+
+.btn-outline-primary {
+    color: #7952b3;
+    border-color: #7952b3;
+}
+
+.btn-outline-primary:not(:disabled):not(.disabled):active,
+.btn-outline-primary:hover {
+    background-color: #7952b3;
+    border-color: #7952b3;
+}
+
+.btn-outline-primary:not(:disabled):not(.disabled):active:focus,
+.btn-outline-primary:focus {
+    box-shadow: 0 0 0 0.2rem rgba(120,80,180,.2);
+}
+
+
+.dropdown-item.active, .dropdown-item:active {background-color: #9473CE;}
+.dt-button{color: #fff !important;}
+.dt-button { margin-bottom: 1rem; background: #7952b3 !important; font-weight: 500 !important; color: #fff !important; border: 1px solid #7952b3 !important; padding: .225rem .75rem !important; border-radius: .25rem !important;}
+
+/*.cod-rastreio{color: #7f54b3;}*/
+
+.img-table-mktplace{display:block; height:25px; border-radius:6px;}
+
+.dataTables_wrapper .dataTables_filter,
+.dataTables_wrapper .dataTables_length {padding: 5px !important;}
+.dataTables_wrapper .dataTables_length select:focus,
+.dataTables_wrapper .dataTables_filter input:focus,
+.form-control:focus { border-color: rgb(121 82 179 / 0.5) !important; box-shadow: 0 0 0 0.2rem rgb(121 82 179 / .25) !important; }
+
+.btn-sm {line-height: 1;}
+
+.font-weight-bold {font-size: 0.9rem !important; font-weight: 500 !important;}
+
+
+/*LOADING*/
+.load{position: relative;height:445px;overflow:hidden;}
+.load:before{content:'';display:block;width: 100%; height:100%; position: absolute; top: 0; left: 0; background: #fff url(../images/load.gif) center 25px no-repeat;z-index: 1;}
+
+/*DataTables*/
+.dataTables_length label,
+.dataTables_filter label,
+.dataTables_info,
+.paging_simple_numbers{font-weight: 500 !important; color: #495057;}
+
+.dataTables_filter input{height: calc(1.5em + .75rem + 2px) !important; padding: .375rem .75rem !important; font-size: 1rem !important; font-weight: 400 !important; line-height: 1.5 !important; color: #495057 !important; background-color: #fff !important; background-clip: padding-box !important; border: 1px solid #ced4da !important; border-radius: .25rem !important; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;}
+
+.table, table.dataTable {color: #495057;}
+.table-sm td, .table-sm th {padding: 0.475rem .3rem;}
+
+.table-striped tbody tr:nth-of-type(odd) {background-color: #f7f7f7 !important;}
+
+/*.lastInsert tbody tr:first-child td{background-color: #d4edda !important;}
+.table.lastInsert tbody tr:first-child td span.cod-rastreio{position: relative;}
+.table.lastInsert tbody tr:first-child td span.cod-rastreio:after{content:'novo';position: absolute;top:0;right:-40px;display:inline;margin-left: 5px;padding: 3px 5px;font-size:8px;color:#fff;border-radius:50px;background:#9473CE;}*/
+
+.table-dark, .table-dark>td, .table-dark>th {font-size: 17px; font-weight: 700 !important;background-color: #7f54b3 !important;color: #fff !important;}
+
+table.dataTable thead th {padding: 10px 10px !important;  border-bottom: 0 !important;}
+table.dataTable tbody td {padding: 4px 10px !important;}
+
+.dataTables_wrapper .dataTables_length select{ border-color: #ced4da !important; border-radius: .25rem !important;}
+.table-dark th{border: 0;}
+table.dataTable.no-footer {border-bottom: 1px solid #dee2e6 !important;}
+
+table.dataTable thead .sorting_desc,
+table.dataTable thead .sorting_asc,
+table.dataTable thead .sorting {background-image: none !important;}
+
+/*.dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover { color: #FFF !important;}*/
+.dataTables_wrapper .dataTables_paginate .paginate_button.current { color: #999 !important; border: 1px solid #999 !important; background: #f7f7f7 !important;}
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover { color: #FFF !important; border: 1px solid #7F54B3 !important; background: #9a69c7 !important; }
+
+#datatables_buttons_info{ position: absolute; bottom: 0; left: 0; width: 100%; padding: 15px; color: #FFF; text-align: center; background-color: #7952b3; }
+#datatables_buttons_info h2{font-size: 20px;font-weight: bolder}
+#datatables_buttons_info div{font-size: 16px;}

@@ -1,0 +1,294 @@
+/* =====================================================
+   FAQ SECTION
+   ===================================================== */
+.faq-section {
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+    padding: 90px 20px;
+}
+
+.faq-section::before {
+    content: "";
+    position: absolute;
+    width: 360px;
+    height: 360px;
+    left: -220px;
+    top: 180px;
+    border-radius: 50%;
+    background: #f1ebfa;
+}
+
+.faq-section::after {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    right: -190px;
+    bottom: 50px;
+    border-radius: 50%;
+    background: #f4effb;
+}
+
+.container {
+    position: relative;
+    z-index: 2;
+    max-width: 1050px;
+    margin: 0 auto;
+}
+
+/* =====================================================
+   TITULO
+   ===================================================== */
+.section-title {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-title .eyebrow {
+    display: inline-block;
+    padding: 7px 14px;
+    margin-bottom: 13px;
+    background: #f3eff9;
+    color: #7952b3;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+}
+
+.section-title h1 {
+    margin: 0;
+    color: #272727;
+    font-size: clamp(32px, 5vw, 44px);
+    line-height: 1.15;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+}
+
+.section-title p {
+    max-width: 620px;
+    margin: 15px auto 0;
+    color: #666;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+/* =====================================================
+   ACCORDION
+   ===================================================== */
+#faqAccordion {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.card {
+    margin-bottom: 12px;
+    background: #fff;
+    border: 1px solid #e8e3f0;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 3px 15px rgba(121, 82, 179, .04);
+    transition: border-color .25s ease,
+                box-shadow .25s ease,
+                transform .25s ease;
+}
+
+.card:hover {
+    border-color: rgba(121, 82, 179, .35);
+    box-shadow: 0 8px 25px rgba(121, 82, 179, .10);
+    transform: translateY(-1px);
+}
+
+.card-header {
+    padding: 0;
+    background: #fff;
+    border: none;
+}
+
+.card-header button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 22px 60px 22px 24px;
+    background: #fff;
+    border: none;
+    color: #272727;
+    font: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.4;
+    text-align: left;
+    cursor: pointer;
+    transition: color .25s ease, background .25s ease;
+}
+
+.card-header button:hover {
+    color: #5830B4;
+    background: #fcfbfe;
+}
+
+.card-header button:focus {
+    outline: 3px solid rgba(121, 82, 179, .15);
+    outline-offset: -3px;
+}
+
+.card-header button::after {
+    content: "+";
+    position: absolute;
+    right: 22px;
+    top: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background: #f3eff9;
+    color: #7952b3;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1;
+    transition: transform .25s ease,
+                background .25s ease,
+                color .25s ease;
+}
+
+.card-header button:hover::after {
+    background: #5830B4;
+    color: #fff;
+}
+
+.card-header button[aria-expanded="true"] {
+    color: #7952b3;
+    background: #fcfbfe;
+}
+
+.card-header button[aria-expanded="true"]::after {
+    content: "−";
+    background: #7952b3;
+    color: #fff;
+}
+
+.card-body {
+    display: none;
+    padding: 20px 24px 24px;
+    background: #fcfbfe;
+    color: #666;
+    font-size: 15px;
+    line-height: 1.75;
+    border-top: 1px solid #f0edf5;
+}
+
+.card-body.open {
+    display: block;
+}
+
+.card-body strong {
+    color: #7952b3;
+}
+
+/* =====================================================
+   CTA
+   ===================================================== */
+.cta {
+    margin: 0 auto;
+    padding: 90px 40px;
+    background: linear-gradient(135deg, #5830B4, #7952b3);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    box-shadow: 0 15px 40px rgba(88, 48, 180, .20);
+}
+
+.cta h2 {
+    margin: 0 0 7px;
+    font-size: 44px;
+    font-weight: 800;
+}
+
+.cta p {
+    margin: 20px auto 30px;
+    opacity: .88;
+    font-size: 18px;
+}
+
+.cta a {
+    flex-shrink: 0;
+    display: inline-block;
+    padding: 15px 50px;
+    border-radius: 30px;
+    background: #fff;
+    color: var(--roxo);
+    font-size: 20px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.cta a:hover {
+    color: var(--roxo-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,.15);
+}
+
+/* =====================================================
+   RESPONSIVO
+   ===================================================== */
+@media (max-width: 767px) {
+
+    .faq-section {
+        padding: 65px 16px;
+    }
+
+    .section-title {
+        margin-bottom: 32px;
+    }
+
+    .section-title h1 {
+        font-size: 31px;
+    }
+
+    .section-title p {
+        font-size: 15px;
+    }
+
+    .card {
+        margin-bottom: 10px;
+        border-radius: 11px;
+    }
+
+    .card-header button {
+        padding: 19px 52px 19px 18px;
+        font-size: 18px;
+    }
+
+    .card-header button::after {
+        right: 17px;
+        width: 26px;
+        height: 26px;
+        font-size: 18px;
+    }
+
+    .card-body {
+        padding: 0 18px 20px;
+        font-size: 17px;
+        line-height: 1.7;
+    }
+
+    .cta {
+        padding: 28px 24px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cta a {
+        width: 100%;
+        text-align: center;
+    }
+}
