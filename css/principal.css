@@ -314,6 +314,14 @@ h2{
      font-size: 17px;
      line-height: 1.5;
 }
+ .bipar-content ul {
+     list-style: disc;
+     padding-left: 24px;
+}
+ .bipar-content ul li{
+     color: var(--cinza);
+     font-size: 17px;
+}
  .info-box {
      font-size: 16px;
      background: var(--roxo-light);
@@ -547,13 +555,13 @@ h2{
          padding: 100px 0 60px;
     }
      .hero h1 {
-         font-size: 38px;
+         font-size: 40x;
+    }
+    .hero-badge{
+        font-size: 12px;
     }
      .section-title h2, .dashboard-text h2 {
-         font-size: 31px;
-    }
-    .bipar-content h2{
-        font-size: 24px;
+         font-size: 30px;
     }
      .beneficios-box {
          padding: 35px 25px;
@@ -562,7 +570,7 @@ h2{
          font-size: 30px;
     }
      .cta h2 {
-         font-size: 32px;
+         font-size: 30px !important;
     }
     .steps {
         padding-top: 0;
