@@ -1,71 +1,33 @@
 <?php
-/*
-|--------------------------------------------------------------------------
-| BipeiPostei - Pré-cadastro
-|--------------------------------------------------------------------------
-| Este formulário NÃO grava dados no banco.
-| Os dados são enviados diretamente para o e-mail configurado abaixo.
-|--------------------------------------------------------------------------
-*/
 
-// ==========================================================
-// CONFIGURAÇÃO
-// ==========================================================
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\Exception;
 
-$email_destino = 'efetive@gmail.com';
+    require __DIR__ . '/vendor/autoload.php';
 
-// Nome que aparecerá como remetente
-$nome_remetente = 'BipeiPostei';
+    $sucesso = false;
+    $erro = '';
 
-// ==========================================================
-// VARIÁVEIS
-// ==========================================================
+    $email_destino = 'contato@bipeipostei.com.br';
 
-$sucesso = false;
-$erro = '';
+    $smtp_usuario = 'contato@bipeipostei.com.br';
+    $smtp_senha = '212223@Bipei!';
 
-$nome = '';
-$empresa = '';
-$email = '';
-$whatsapp = '';
-$pedidos = '';
-$observacoes = '';
-$marketplaces = [];
+    $nome = '';
+    $empresa = '';
+    $email = '';
+    $whatsapp = '';
+    $pedidos = '';
+    $observacoes = '';
+    $marketplaces = [];
 
-// ==========================================================
-// PROCESSAMENTO DO FORMULÁRIO
-// ==========================================================
+    /*
+    |--------------------------------------------------------------------------
+    | Marketplaces permitidos
+    |--------------------------------------------------------------------------
+    | Fica fora do POST porque também é utilizado pelo HTML do formulário.
+    */
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-    // ------------------------------------------------------
-    // Honeypot anti-spam
-    // ------------------------------------------------------
-    if (!empty($_POST['website'])) {
-        // Se o campo escondido estiver preenchido,
-        // provavelmente é um robô.
-        exit;
-    }
-
-    // ------------------------------------------------------
-    // Captura dos dados
-    // ------------------------------------------------------
-
-    $nome = trim($_POST['nome'] ?? '');
-    $empresa = trim($_POST['empresa'] ?? '');
-    $email = trim($_POST['email'] ?? '');
-    $whatsapp = trim($_POST['whatsapp'] ?? '');
-    $pedidos = trim($_POST['pedidos'] ?? '');
-    $observacoes = trim($_POST['observacoes'] ?? '');
-
-    $marketplaces = $_POST['marketplaces'] ?? [];
-
-    // Garante que marketplaces seja um array
-    if (!is_array($marketplaces)) {
-        $marketplaces = [];
-    }
-
-    // Limita os marketplaces permitidos
     $marketplaces_permitidos = [
         'Mercado Livre',
         'Mercado Livre Flex',
@@ -81,129 +43,447 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'Outro'
     ];
 
-    $marketplaces = array_values(
-        array_intersect($marketplaces, $marketplaces_permitidos)
-    );
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    // ------------------------------------------------------
-    // Validações
-    // ------------------------------------------------------
+        if (!empty($_POST['website'])) {
+            exit;
+        }
 
-    if ($nome === '') {
-        $erro = 'Informe seu nome.';
-    }
+        $nome = trim($_POST['nome'] ?? '');
+        $empresa = trim($_POST['empresa'] ?? '');
+        $email = trim($_POST['email'] ?? '');
+        $whatsapp = trim($_POST['whatsapp'] ?? '');
+        $pedidos = trim($_POST['pedidos'] ?? '');
+        $observacoes = trim($_POST['observacoes'] ?? '');
 
-    elseif ($empresa === '') {
-        $erro = 'Informe o nome da empresa.';
-    }
+        $marketplaces = $_POST['marketplaces'] ?? [];
 
-    elseif ($email === '') {
-        $erro = 'Informe seu e-mail.';
-    }
+        if (!is_array($marketplaces)) {
+            $marketplaces = [];
+        }
 
-    elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $erro = 'Informe um e-mail válido.';
-    }
+        /*
+        |--------------------------------------------------------------------------
+        | Filtra somente marketplaces permitidos
+        |--------------------------------------------------------------------------
+        */
 
-    elseif ($whatsapp === '') {
-        $erro = 'Informe seu WhatsApp.';
-    }
-
-    elseif ($pedidos === '') {
-        $erro = 'Informe a quantidade aproximada de pedidos.';
-    }
-
-    elseif (empty($marketplaces)) {
-        $erro = 'Selecione pelo menos um marketplace.';
-    }
-
-    // ------------------------------------------------------
-    // Envio do e-mail
-    // ------------------------------------------------------
-
-    if ($erro === '') {
-
-        // Converte marketplaces para texto
-        $lista_marketplaces = implode(', ', $marketplaces);
-
-        // Segurança contra quebra de cabeçalho
-        $email = str_replace(["\r", "\n"], '', $email);
-
-        // Assunto
-        $assunto = 'Novo pré-cadastro - BipeiPostei';
-
-        // Data/hora
-        $data_cadastro = date('d/m/Y H:i:s');
-
-        // --------------------------------------------------
-        // Corpo do e-mail
-        // --------------------------------------------------
-
-        $mensagem = "NOVO PRÉ-CADASTRO - BIPEIPOSTEI\n";
-        $mensagem .= "====================================\n\n";
-
-        $mensagem .= "Data: " . $data_cadastro . "\n\n";
-
-        $mensagem .= "DADOS DO INTERESSADO\n";
-        $mensagem .= "------------------------------------\n";
-
-        $mensagem .= "Nome: " . $nome . "\n";
-        $mensagem .= "Empresa: " . $empresa . "\n";
-        $mensagem .= "E-mail: " . $email . "\n";
-        $mensagem .= "WhatsApp: " . $whatsapp . "\n";
-        $mensagem .= "Pedidos por dia: " . $pedidos . "\n\n";
-
-        $mensagem .= "MARKETPLACES\n";
-        $mensagem .= "------------------------------------\n";
-        $mensagem .= $lista_marketplaces . "\n\n";
-
-        $mensagem .= "OBSERVAÇÕES\n";
-        $mensagem .= "------------------------------------\n";
-        $mensagem .= ($observacoes !== '' ? $observacoes : 'Nenhuma observação informada.') . "\n\n";
-
-        $mensagem .= "====================================\n";
-        $mensagem .= "Pré-cadastro enviado através do site BipeiPostei.\n";
-
-        // --------------------------------------------------
-        // Cabeçalhos
-        // --------------------------------------------------
-
-        $headers = [];
-
-        $headers[] = 'From: ' . $nome_remetente . ' <' . $email_destino . '>';
-        $headers[] = 'Reply-To: ' . $email;
-        $headers[] = 'MIME-Version: 1.0';
-        $headers[] = 'Content-Type: text/plain; charset=UTF-8';
-
-        // --------------------------------------------------
-        // Envio
-        // --------------------------------------------------
-
-        $enviado = mail(
-            $email_destino,
-            $assunto,
-            $mensagem,
-            implode("\r\n", $headers)
+        $marketplaces = array_values(
+            array_intersect(
+                $marketplaces,
+                $marketplaces_permitidos
+            )
         );
 
-        if ($enviado) {
-            $sucesso = true;
+        /*
+        |--------------------------------------------------------------------------
+        | Validações
+        |--------------------------------------------------------------------------
+        */
 
-            // Limpa o formulário
-            $nome = '';
-            $empresa = '';
-            $email = '';
-            $whatsapp = '';
-            $pedidos = '';
-            $observacoes = '';
-            $marketplaces = [];
+        if ($nome === '') {
 
-        } else {
-            $erro = 'Não foi possível enviar seu pré-cadastro. Tente novamente em alguns instantes.';
+            $erro = 'Informe seu nome.';
+
+        } elseif ($empresa === '') {
+
+            $erro = 'Informe o nome da empresa.';
+
+        } elseif ($email === '') {
+
+            $erro = 'Informe seu e-mail.';
+
+        } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+
+            $erro = 'Informe um e-mail válido.';
+
+        } elseif ($whatsapp === '') {
+
+            $erro = 'Informe seu WhatsApp.';
+
+        } elseif ($pedidos === '') {
+
+            $erro = 'Informe a quantidade aproximada de pedidos.';
+
+        } elseif (empty($marketplaces)) {
+
+            $erro = 'Selecione pelo menos um marketplace.';
+        }
+
+        /*
+        |--------------------------------------------------------------------------
+        | Envio do e-mail
+        |--------------------------------------------------------------------------
+        */
+
+        if ($erro === '') {
+
+            try {
+
+                $mail = new PHPMailer(true);
+
+                $mail->isSMTP();
+
+                $mail->Host = 'smtp.hostinger.com';
+
+                $mail->SMTPAuth = true;
+
+                $mail->Username = $smtp_usuario;
+
+                $mail->Password = $smtp_senha;
+
+                $mail->SMTPSecure =
+                    PHPMailer::ENCRYPTION_SMTPS;
+
+                $mail->Port = 465;
+
+                $mail->CharSet = 'UTF-8';
+
+                /*
+                |--------------------------------------------------------------------------
+                | Remetente
+                |--------------------------------------------------------------------------
+                */
+
+                $mail->setFrom(
+                    $smtp_usuario,
+                    'BipeiPostei'
+                );
+
+                /*
+                |--------------------------------------------------------------------------
+                | Destinatário
+                |--------------------------------------------------------------------------
+                */
+
+                $mail->addAddress(
+                    $email_destino,
+                    'BipeiPostei'
+                );
+
+                /*
+                |--------------------------------------------------------------------------
+                | Responder para o interessado
+                |--------------------------------------------------------------------------
+                */
+
+                $mail->addReplyTo(
+                    $email,
+                    $nome
+                );
+
+                /*
+                |--------------------------------------------------------------------------
+                | Dados
+                |--------------------------------------------------------------------------
+                */
+
+                $lista_marketplaces = implode(
+                    ', ',
+                    $marketplaces
+                );
+
+                $data_cadastro = date(
+                    'd/m/Y H:i:s'
+                );
+
+                /*
+                |--------------------------------------------------------------------------
+                | E-mail HTML
+                |--------------------------------------------------------------------------
+                */
+
+                $mail->isHTML(true);
+
+                $mail->Subject =
+                    'Novo pré-cadastro - BipeiPostei';
+
+                $mail->Body = '
+
+                <div style="
+                    font-family: Arial, sans-serif;
+                    max-width: 700px;
+                    margin: 0 auto;
+                    color: #333;
+                ">
+
+                    <div style="
+                        background: #f5f7fa;
+                        padding: 25px;
+                        border-radius: 12px;
+                    ">
+
+                        <h2 style="margin-top: 0;">
+                            Novo pré-cadastro
+                        </h2>
+
+                        <p>
+                            Um novo interessado enviou o formulário
+                            do BipeiPostei.
+                        </p>
+
+                    </div>
+
+                    <br>
+
+                    <table
+                        width="100%"
+                        cellpadding="10"
+                        cellspacing="0"
+                        style="border-collapse: collapse;"
+                    >
+
+                        <tr>
+
+                            <td style="
+                                border-bottom: 1px solid #ddd;
+                                font-weight: bold;
+                            ">
+                                Data
+                            </td>
+
+                            <td style="
+                                border-bottom: 1px solid #ddd;
+                            ">
+                                ' .
+                                htmlspecialchars(
+                                    $data_cadastro,
+                                    ENT_QUOTES,
+                                    'UTF-8'
+                                ) .
+                            '
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td style="
+                                border-bottom: 1px solid #ddd;
+                                font-weight: bold;
+                            ">
+                                Nome
+                            </td>
+
+                            <td style="
+                                border-bottom: 1px solid #ddd;
+                            ">
+                                ' .
+                                htmlspecialchars(
+                                    $nome,
+                                    ENT_QUOTES,
+                                    'UTF-8'
+                                ) .
+                            '
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td style="
+                                border-bottom: 1px solid #ddd;
+                                font-weight: bold;
+                            ">
+                                Empresa
+                            </td>
+
+                            <td style="
+                                border-bottom: 1px solid #ddd;
+                            ">
+                                ' .
+                                htmlspecialchars(
+                                    $empresa,
+                                    ENT_QUOTES,
+                                    'UTF-8'
+                                ) .
+                            '
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td style="
+                                border-bottom: 1px solid #ddd;
+                                font-weight: bold;
+                            ">
+                                E-mail
+                            </td>
+
+                            <td style="
+                                border-bottom: 1px solid #ddd;
+                            ">
+                                ' .
+                                htmlspecialchars(
+                                    $email,
+                                    ENT_QUOTES,
+                                    'UTF-8'
+                                ) .
+                            '
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td style="
+                                border-bottom: 1px solid #ddd;
+                                font-weight: bold;
+                            ">
+                                WhatsApp
+                            </td>
+
+                            <td style="
+                                border-bottom: 1px solid #ddd;
+                            ">
+                                ' .
+                                htmlspecialchars(
+                                    $whatsapp,
+                                    ENT_QUOTES,
+                                    'UTF-8'
+                                ) .
+                            '
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td style="
+                                border-bottom: 1px solid #ddd;
+                                font-weight: bold;
+                            ">
+                                Pedidos por dia
+                            </td>
+
+                            <td style="
+                                border-bottom: 1px solid #ddd;
+                            ">
+                                ' .
+                                htmlspecialchars(
+                                    $pedidos,
+                                    ENT_QUOTES,
+                                    'UTF-8'
+                                ) .
+                            '
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td style="
+                                border-bottom: 1px solid #ddd;
+                                font-weight: bold;
+                            ">
+                                Marketplaces
+                            </td>
+
+                            <td style="
+                                border-bottom: 1px solid #ddd;
+                            ">
+                                ' .
+                                htmlspecialchars(
+                                    $lista_marketplaces,
+                                    ENT_QUOTES,
+                                    'UTF-8'
+                                ) .
+                            '
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td style="
+                                vertical-align: top;
+                                font-weight: bold;
+                            ">
+                                Observações
+                            </td>
+
+                            <td>
+                                ' .
+                                nl2br(
+                                    htmlspecialchars(
+                                        $observacoes !== ''
+                                            ? $observacoes
+                                            : 'Nenhuma observação informada.',
+                                        ENT_QUOTES,
+                                        'UTF-8'
+                                    )
+                                ) .
+                                '
+                            </td>
+
+                        </tr>
+
+                    </table>
+
+                    <br>
+
+                    <p style="
+                        color: #888;
+                        font-size: 12px;
+                    ">
+                        Enviado através do site BipeiPostei.
+                    </p>
+
+                </div>';
+
+                /*
+                |--------------------------------------------------------------------------
+                | Versão texto
+                |--------------------------------------------------------------------------
+                */
+
+                $mail->AltBody =
+                    "NOVO PRÉ-CADASTRO - BIPEIPOSTEI\n\n" .
+                    "Data: $data_cadastro\n" .
+                    "Nome: $nome\n" .
+                    "Empresa: $empresa\n" .
+                    "E-mail: $email\n" .
+                    "WhatsApp: $whatsapp\n" .
+                    "Pedidos por dia: $pedidos\n" .
+                    "Marketplaces: $lista_marketplaces\n\n" .
+                    "Observações:\n" .
+                    ($observacoes ?: 'Nenhuma.');
+
+                /*
+                |--------------------------------------------------------------------------
+                | Envia
+                |--------------------------------------------------------------------------
+                */
+
+                $mail->send();
+
+                $sucesso = true;
+
+                $nome = '';
+                $empresa = '';
+                $email = '';
+                $whatsapp = '';
+                $pedidos = '';
+                $observacoes = '';
+                $marketplaces = [];
+
+            } catch (Exception $e) {
+
+                $erro =
+                    'Não foi possível enviar seu pré-cadastro. ' .
+                    'Tente novamente em alguns instantes.';
+
+                error_log(
+                    'Erro SMTP BipeiPostei: ' .
+                    $mail->ErrorInfo
+                );
+            }
         }
     }
-}
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -238,7 +518,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <nav class="navbar navbar-expand-md navbar-dark bg-purple fixed-top p-2 mb-3">
       <div class="container">
-          <img class="m-auto" src="https://app.bipeipostei.com.br/images/logo.svg">
+          <a href="/" class="d-block m-auto"><img src="images/logo.svg"></a>
       </div>
     </nav>
 
@@ -253,7 +533,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <div class="cadastro-header">
 
-            <h1>Conheça o BipeiPostei</h1>
+            <h1>Experimente o BipeiPostei</h1>
 
             <p>
                 Faça seu pré-cadastro e entre em contato conosco

@@ -1,0 +1,12 @@
+{
+    "name": "thiagodelima/site-bipei-postei",
+    "authors": [
+        {
+            "name": "thiago canudo",
+            "email": "thiago@thiagocanudo.com.br"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^7.1"
+    }
+}
