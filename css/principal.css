@@ -126,7 +126,7 @@ h2{
 /* ========================================= HERO ========================================= */
  .hero {
      position: relative;
-     padding: 140px 0 100px;
+     padding: 140px 0 80px;
      overflow: hidden;
      background: linear-gradient(to bottom, #FFFFFF 0%, #F6F5FD 100%);
 }
@@ -164,7 +164,7 @@ h2{
      margin-bottom: 10px;
 }
  .hero h1 {
-     font-size: 58px;
+     font-size: 45px;
      line-height: 1.05;
      font-weight: 700;
      letter-spacing: -2.5px;
@@ -305,7 +305,7 @@ h2{
      letter-spacing: 1px;
 }
  .bipar-content h2 {
-     font-size: 40px;
+     font-size: 28px;
      font-weight: 700;
      margin: 12px 0 20px;
 }
@@ -315,7 +315,7 @@ h2{
      line-height: 1.5;
 }
  .info-box {
-     font-size: 17px;
+     font-size: 16px;
      background: var(--roxo-light);
      border-left: 4px solid var(--roxo);
      padding: 18px;
@@ -549,8 +549,11 @@ h2{
      .hero h1 {
          font-size: 38px;
     }
-     .section-title h2, .bipar-content h2, .dashboard-text h2 {
+     .section-title h2, .dashboard-text h2 {
          font-size: 31px;
+    }
+    .bipar-content h2{
+        font-size: 24px;
     }
      .beneficios-box {
          padding: 35px 25px;
